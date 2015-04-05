@@ -32,6 +32,9 @@ cordova.define("cordova/plugin/CanvasCamera", function(require, exports, module)
         this._camImage = new Image();
 
         this._camImage.onload = function() {
+            
+            console.log(_this._camImage);
+            
             _this._context.clearRect(0, 0, _this._width, _this._height);
             if (window.orientation == 90
                || window.orientation == -90)
@@ -40,7 +43,7 @@ cordova.define("cordova/plugin/CanvasCamera", function(require, exports, module)
                 // rotate 90
                 _this._context.translate(_this._width/2, _this._height/2);
                 _this._context.rotate((90 - window.orientation) *Math.PI/180);
-                _this._context.drawImage(_this._camImage, 0, 0, 352, 288, -_this._width/2, -_this._height/2, _this._width, _this._height);
+                //_this._context.drawImage(_this._camImage, 0, 0, 352, 288, -_this._width/2, -_this._height/2, _this._width, _this._height);
                 //
                 _this._context.restore();
             }
@@ -50,7 +53,7 @@ cordova.define("cordova/plugin/CanvasCamera", function(require, exports, module)
                 // rotate 90
                 _this._context.translate(_this._width/2, _this._height/2);
                 _this._context.rotate((90 - window.orientation)*Math.PI/180);
-                _this._context.drawImage(_this._camImage, 0, 0, 352, 288, -_this._height/2, -_this._width/2, _this._height, _this._width);
+                //_this._context.drawImage(_this._camImage, 0, 0, 352, 288, -_this._height/2, -_this._width/2, _this._height, _this._width);
                 //
                 _this._context.restore();
             }
